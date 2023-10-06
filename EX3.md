@@ -3,7 +3,7 @@
 
 ## Create employee Table
 ```sql
-CREATE TABLE EMP (EMPNO NUMBER(4) PRIMARY KEY,ENAME VARCHAR2(10),JOB VARCHAR2(9),MGR NUMBER(4),HIREDATE DATE,SAL NUMBER(7,2),COMM NUMBER(7,2),DEPTNO NUMBER(2));
+CREATE TABLE EMP (EMPNO INT PRIMARY KEY,ENAME VARCHAR2(10),JOB VARCHAR2(9),MGR INT,HIREDATE DATE,SAL INT,COMM INT,DEPTNO INT);
 ```
 ## Insert the values
 ```sql
@@ -52,7 +52,7 @@ VALUES (7934, 'MILLER', 'CLERK', 7782, TO_DATE('23-JAN-82', 'DD-MON-RR'), 1300, 
 
 ## Create department table
 ```sql
-CREATE TABLE DEPT (DEPTNO NUMBER(2) PRIMARY KEY,DNAME VARCHAR2(14),LOC VARCHAR2(13));
+CREATE TABLE DEPT (DEPTNO INT PRIMARY KEY,DNAME VARCHAR2(14),LOC VARCHAR2(13));
 ```
 ## Insert the values in the department table
 ```sql
@@ -67,18 +67,18 @@ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (40, 'OPERATIONS', 'BOSTON');
 
 ### Q1) List the name of the employees whose salary is greater than that of employee with empno 7566.
 
-
-### QUERY:
-
-
 ### OUTPUT:
+```
+![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/4e4ccca5-07d6-4509-92f5-389de3867a0f)
+```
 
 ### Q2) List the ename,job,sal of the employee who get minimum salary in the company.
 
-### QUERY:
-
-
 ### OUTPUT:
+```
+![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/8e8a8c3c-2946-4333-956d-6eaaa4d9b0bc)
+```
+
 
 ### Q3) List ename, job of the employees who work in deptno 10 and his/her job is any one of the job in the department ‘SALES’.
 
