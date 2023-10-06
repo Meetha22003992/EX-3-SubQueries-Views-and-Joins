@@ -148,7 +148,5 @@ INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5003, 'Lauson
 
 ### Q10) Perform Left and right join on both tables
 
-### QUERY:
-
-
 ### OUTPUT:
+
