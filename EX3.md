@@ -149,4 +149,5 @@ INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5003, 'Lauson
 ### Q10) Perform Left and right join on both tables
 
 ### OUTPUT:
+![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/702826e0-c950-4369-936f-3204a20d4e55)
 
