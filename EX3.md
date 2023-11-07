@@ -1,5 +1,8 @@
 # EX 3 SubQueries, Views and Joins 
+## DATE: 18.08.2023
 
+## AIM: 
+To implement subqueries, views and joins
 
 ## Create employee Table
 ```sql
@@ -67,38 +70,53 @@ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (40, 'OPERATIONS', 'BOSTON');
 
 ### Q1) List the name of the employees whose salary is greater than that of employee with empno 7566.
 
+### QUERY:
+select ename from emp where sal >(select sal from emp where empno = 7566);
+
 ### OUTPUT:
 ![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/4e4ccca5-07d6-4509-92f5-389de3867a0f)
 
 ### Q2) List the ename,job,sal of the employee who get minimum salary in the company.
+
+### QUERY:
+select ename,job from emp where sal=800; 
 
 ### OUTPUT:
 ![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/8e8a8c3c-2946-4333-956d-6eaaa4d9b0bc)
 
 ### Q3) List ename, job of the employees who work in deptno 10 and his/her job is any one of the job in the department ‘SALES’.
 
+### QUERY:
+select ename,job from emp where deptno=10 and job='sales';
+
 ### OUTPUT:
 ![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/2f568cae-8ee7-40e0-a139-e2d46c1374ee)
 
 ### Q4) Create a view empv5 (for the table emp) that contains empno, ename, job of the employees who work in dept 10.
 
+### QUERY:
+ create view EMPV5 as select empno, ename, job from emp where dpetno=10;
+ 
 ### OUTPUT:
-![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/439311b8-792b-4d1a-b14c-60501d5fac71)
 
 ![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/39a489d4-dd98-4e8a-af23-7519acba4137)
 
 
 ### Q5) Create a view with column aliases empv30 that contains empno, ename, sal of the employees who work in dept 30. Also display the contents of the view.
 
+### QUERY:
+create view EMPV30 (emplpoyee_no,employee_name,employee_sal) as select empno,empname,sal from emp where deptno=30;
+
 ### OUTPUT:
-![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/76f0058d-c683-40e4-b433-efff24293f26)
 
 ![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/68cc8409-bba9-40bc-b4e9-0ed66bb38692)
 
 ### Q6) Update the view empv5 by increasing 10% salary of the employees who work as ‘CLERK’. Also confirm the modifications in emp table
 
+### QUERY:
+update EMPVS5 set sal= sal+(sal*10/100) where job="clerk";
+
 ### OUTPUT:
-![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/9beac3d1-0d10-4205-be68-5e7378b94f32)
 
 ![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/f07e09fa-557e-494f-b9e0-503e7f92555e)
 
@@ -132,21 +150,33 @@ INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5003, 'Lauson
 ```
 ### Q7) Write a SQL query to find the salesperson and customer who reside in the same city. Return Salesman, cust_name and city.
 
+### QUERY:
+select customer1.cust_name, salesman1.name, salesman.city from salesman1, customer1 where salesman1.city = customer1.city;
+
 ### OUTPUT:
 ![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/9d2bb240-3f0f-4354-abb9-41e7a95adebf)
 
 ### Q8) Write a SQL query to find salespeople who received commissions of more than 13 percent from the company. Return Customer Name, customer city, Salesman, commission.
+
+### QUERY:
+select a.cust_anme as "CUSTOMER NAME", a.city, b.name as "SALESMAN", b.comission from customer1 a inner join salesman1 b on a.salesman_id=salesman_id where b.comission>12;
 
 ### OUTPUT:
 ![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/e218a7a3-25f4-428a-a6b1-6d9a908d005c)
 
 ### Q9) Perform Natural join on both tables
 
+### QUERY:
+select * from customer1 natural join salesman1;
+
 ### OUTPUT:
 ![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/8f7615a3-f4c8-4cc4-a635-e08c66505735)
 
 
 ### Q10) Perform Left and right join on both tables
+
+### QUERY:
+select customer_id,cust_name,name,comission from customer1 left join salesman1 on customer1.salesman = salesman1.salesman_id;
 
 ### OUTPUT:
 ![image](https://github.com/Meetha22003992/EX-3-SubQueries-Views-and-Joins/assets/119401038/702826e0-c950-4369-936f-3204a20d4e55)
